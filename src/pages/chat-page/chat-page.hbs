@@ -1,0 +1,24 @@
+<div class="chat-page">
+    {{#> ChatList className="chat-page__list" }}
+    <div class="chat-page__list search-container">
+        {{> Link text="Профиль >" className="search-container__link" page="profile"}}
+        {{> Search name='search' placeholder='Поиск'}}
+    </div>
+    {{#each (chat-page-list)}}
+    {{> ChatItem }}
+    {{/each}}
+    {{/ ChatList }}
+    <div class="chat-page__container messages-list">
+        <div class="messages-list__container">
+
+        </div>
+        <div class="messages-list">
+            <div class="messages-list__controls">
+                <button class="messages-list__controls-attach">📎</button>
+                <input type="text" class="messages-list__controls-input" placeholder="Сообщение" name="message">
+                <button class="messages-list__controls-send">📨</button>
+            </div>
+        </div>
+
+    </div>
+</div>

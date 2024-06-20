@@ -1,0 +1,23 @@
+<main class="profile">
+  <div class="profile__navigate">
+    {{> BackButton page="chat"}}
+  </div>
+  <form class="profile__form">
+    <div class="profile__avatar">
+      {{> Avatar disabled='disabled'}}
+
+      <p class="profile__avatar-username">Иван</p>
+    </div>
+    <div class="profile__inputs">
+      {{#each (profile-page-fields)}}
+      {{> ProfileInput}}
+      {{/each}}
+    </div>
+    </div>
+    <div class="profile__footer">
+      {{> Link text="Изменить данные" page="editProfile" className='profile__footer-button' }}
+      {{> Link text="Изменить пароль" page="password" className='profile__footer-button' }}
+      {{> Link text="Выйти" page="login" className='profile__footer-button' }}
+    </div>
+  </form>
+</main>

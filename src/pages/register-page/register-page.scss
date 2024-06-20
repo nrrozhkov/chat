@@ -1,0 +1,21 @@
+.register-page {
+  min-width: 340px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+
+  &__content {
+    flex: 1;
+    margin-bottom: 62px;
+  }
+
+  &__input {
+    margin-top: 16px;
+  }
+  
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    row-gap: 14px;
+  }
+}

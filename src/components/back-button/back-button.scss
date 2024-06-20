@@ -1,0 +1,11 @@
+@import '../../assets/variables';
+
+.back-button {
+	border-radius: 50%;
+	width: 28px;
+	height: 28px;
+	color: $button-color;
+	background-color: $link-color;
+	border: none;
+	cursor: pointer;
+}
