@@ -40,10 +40,7 @@
     opacity: 0;
     display: flex;
     position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
+    inset: 0;
     background: $overlay;
     border-radius: 50%;
     justify-content: center;
@@ -85,12 +82,12 @@
     }
   }
 
-  &__field__label {
+  &__field-label {
     font-size: 13px;
     line-height: 13px;
   }
 
-  &__field__value {
+  &__field-value {
     font-size: 13px;
     line-height: 13px;
     color: $gray;

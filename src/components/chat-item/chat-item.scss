@@ -3,7 +3,6 @@
 .chat-item {
   display: flex;
   padding: 10px;
-
   border-top: 1px solid $light-gray-3;
   transition: $transition;
 
@@ -17,7 +16,6 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-
     width: 47px;
     height: 47px;
     border-radius: 50%;
@@ -50,7 +48,6 @@
     line-height: 15px;
     color: $gray;
     align-self: flex-start;
-
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
