@@ -2,10 +2,8 @@
   "plugins": ["stylelint-scss"],
   "extends": "stylelint-config-standard-scss",
   "rules": {
-    "rules": {
-      "color-hex-case": "lower",
-      "no-descending-specificity": null
-    }
+    "no-descending-specificity": null,
+    "selector-class-pattern": "^([a-z][a-z0-9]*)(-[a-z0-9]+)*(__[a-z0-9]+)?(--[a-z0-9]+)?$"
   },
   "ignoreFiles": ["dist/*"]
 }
