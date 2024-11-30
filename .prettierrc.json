@@ -1,18 +1,8 @@
 {
-	"overrides": [
-	  {
-		"files": "*.hbs",
-		"options": {
-		  "parser":  "glimmer"
-		}
-	  }
-	],
-	"html.format.indentHandlebars": true,
-	"printWidth": 100,
-	"trailingComma": "es5",
-	"tabWidth": 4,
-	"useTabs": true,
-	"semi": true,
-	"singleQuote": true,
-	"endOfLine": "lf"
-  }
+  "printWidth": 80,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "trailingComma": "es5",
+  "bracketSpacing": true
+}
