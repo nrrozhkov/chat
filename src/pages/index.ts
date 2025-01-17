@@ -1,8 +1,19 @@
-export { ChatPage } from './chat-page';
-export { LoginPage } from './login-page';
-export { RegisterPage } from './register-page';
-export { ProfilePage } from './profile-page';
-export { EditProfilePage } from './edit-profile-page';
-export { PasswordPage } from './password-page';
-export { BadRequest } from './bad-request-page';
-export { ServerError } from './server-error-page';
+import { ChatPage } from "./chat";
+import { ProfilePage } from "./profile";
+import { LoginPage } from "./login";
+import { ProfileChangePage } from "./profile-change";
+import { ProfilePasswordChangePage } from "./profile-password";
+import { RegistrationPage } from "./registration";
+import { ErrorPage } from "./ErrorPage.ts";
+import { NotFoundPage } from "./NotFoundPage.ts";
+
+export {
+  ChatPage,
+  ProfilePage,
+  LoginPage,
+  ProfileChangePage,
+  ProfilePasswordChangePage,
+  RegistrationPage,
+  ErrorPage,
+  NotFoundPage,
+};
