@@ -11,7 +11,27 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "start-preview": "tsc && vite build && vite preview",
-    "start": "npm run build && node server.js"
+    "start": "npm run build && node server.js",
+    "test": "mocha",
+    "prepare": "husky install",
+    "lint:ts": "eslint \"**/*.{ts,tsx}\"",
+    "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
+    "lint:style": "npx stylelint **/*.scss",
+    "lint:style:fix": "npx stylelint **/*.scss --fix"
+  },
+  "lint-staged": {
+    "*.{ts, tsx}": [
+      "npm run lint:ts:fix",
+      "npm run test"
+    ],
+    "*.{scss, css}": [
+      "npm run lint:style:fix"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "devDependencies": {
     "@types/chai": "4.3.16",
@@ -37,10 +57,10 @@
     "stylelint-config-standard-scss": "13.1.0",
     "ts-node": "10.9.2",
     "typescript": "5.4.3",
-    "vite": "5.2.6"
+    "vite": "^5.4.11"
   },
   "dependencies": {
-    "express": "4.19.2",
+    "express": "^4.21.2",
     "handlebars": "4.7.8",
     "uuid": "9.0.1"
   }
