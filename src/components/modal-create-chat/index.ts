@@ -74,7 +74,7 @@ class ModalCreateChatCmp extends Block<ModalCreateChatBlock> {
                   });
                 })
                 .catch((e) =>
-                  alert("У нас не получилось создать чат" + " " + e.reason)
+                  alert(`У нас не получилось создать чат : ${e.reason}`)
                 );
             }
           },

@@ -120,7 +120,7 @@ class ProfileChangeCmp extends Block<ProfileChangeBlock> {
         {{{ BackButton href='/messenger' }}}
         <form class="profile-change">
           <div class="profile-change__img-wrapper">
-            ${avatar ? `<img src=${"https://ya-praktikum.tech/api/v2/resources" + avatar} alt="Автара" class="profile__img"/>` : '<div class="profile__img"></div>'}
+            ${avatar ? `<img src=${"https://ya-praktikum.tech/api/v2/resources" + `${avatar}`} alt="Аватар" class="profile__img"/>` : '<div class="profile__img"></div>'}
           </div>
           <ul class="profile-change__fields">
             <li class="profile-change__field">
