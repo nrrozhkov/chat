@@ -59,7 +59,7 @@ class ChatItemCmp extends Block<ChatItemBlock> {
       <li data-id="${id}" class="chat-item ${activeClass}" >
         ${
           avatar
-            ? `<img src="https://ya-praktikum.tech/api/v2/resources${avatar}" alt="Автара" class="chat-item__avatar"/>`
+            ? `<img src="https://ya-praktikum.tech/api/v2/resources${avatar}" alt="Аватар" class="chat-item__avatar"/>`
             : `<div class="chat-item__avatar" style="background: ${randomColor}">${Array.from(this.props.name)[0]}</div>`
         }
         <div class="chat-item__wrapper">

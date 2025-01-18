@@ -10,7 +10,7 @@ export type ModalChangeAvatarProps = {
 };
 
 export type ModalChangeAvatarBlock = {
-  overlay: Block<{}>;
+  overlay: Block<object>;
   button: Block<ButtonProps>;
 } & ModalChangeAvatarProps;
 
@@ -40,7 +40,7 @@ class ModalChangeAvatarCmp extends Block<ModalChangeAvatarBlock> {
                   closeModalAvatar();
                 })
                 .catch((e) =>
-                  alert("У нас не получилось поменять аватар" + " " + e.reason)
+                  alert(`У нас не получилось поменять аватар : ${e.reason}`)
                 );
             }
           },

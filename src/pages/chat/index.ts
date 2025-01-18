@@ -1,24 +1,24 @@
-import { Block } from "../../utils/Block.ts";
-import "./chat.scss";
+import { Block } from '../../utils/Block.ts';
+import './chat.scss';
 
 import {
   DropdownChatOptions,
   DropdownChatOptionsProps,
-} from "../../components/dropdown-chat-options";
+} from '../../components/dropdown-chat-options';
 import {
   InputElement,
   InputElementProps,
-} from "../../components/Input-element";
-import AuthController from "../../controllers/AuthController.ts";
-import { Router } from "../../utils/Router.ts";
-import { Chat, Message, store, User, withStore } from "../../store";
-import ChatController from "../../controllers/ChatController.ts";
-import { Button, ButtonProps } from "../../components/button";
-import { InputSearch, InputSearchBlock } from "../../components/input-search";
-import { openCreateChat } from "../../utils/modalCreateChat.ts";
-import { DropdownOverlay } from "../../components";
-import { DropdownOverlayProps } from "../../components/dropdown-overlay";
-import { optionsDropdownToggle } from "../../utils/optionsDropdown.ts";
+} from '../../components/Input-element';
+import AuthController from '../../controllers/AuthController.ts';
+import { Router } from '../../utils/Router.ts';
+import { Chat, Message, store, User, withStore } from '../../store';
+import ChatController from '../../controllers/ChatController.ts';
+import { Button, ButtonProps } from '../../components/button';
+import { InputSearch, InputSearchBlock } from '../../components/input-search';
+import { openCreateChat } from '../../utils/modalCreateChat.ts';
+import { DropdownOverlay } from '../../components';
+import { DropdownOverlayProps } from '../../components/dropdown-overlay';
+import { optionsDropdownToggle } from '../../utils/optionsDropdown.ts';
 
 export type ChatPageProps = {
   currentChatId: string;
@@ -37,8 +37,8 @@ export type ChatPageBlock = {
 } & ChatPageProps;
 
 const randomColor = () => {
-  const letters = "0123456789ABCDEF";
-  let color = "#";
+  const letters = '0123456789ABCDEF';
+  let color = '#';
   for (let i = 0; i < 6; i++) {
     color += letters[Math.floor(Math.random() * 16)];
   }
@@ -52,9 +52,9 @@ class ChatPageCmp extends Block<ChatPageBlock> {
     super({
       ...props,
       createChatButton: Button({
-        type: "button",
-        text: "Создать чат",
-        className: "chats__create-button",
+        type: 'button',
+        text: 'Создать чат',
+        className: 'chats__create-button',
         events: {
           click: () => {
             openCreateChat();
@@ -73,16 +73,16 @@ class ChatPageCmp extends Block<ChatPageBlock> {
         events: {
           input: (event) => {
             if (event.target instanceof HTMLInputElement) {
-              store.set("searchValue", event.target.value);
+              store.set('searchValue', event.target.value);
               event.target.focus();
             }
           },
         },
       }),
       chatMessageInput: InputElement({
-        id: "message",
-        className: "chats__input-message",
-        placeholder: "Сообщение",
+        id: 'message',
+        className: 'chats__input-message',
+        placeholder: 'Сообщение',
       }),
     });
   }
@@ -91,16 +91,16 @@ class ChatPageCmp extends Block<ChatPageBlock> {
     const router = new Router();
     ChatController.getChats()
       .then(() => {
-        AuthController.getUser().catch(() => router.go("/"));
+        AuthController.getUser().catch(() => router.go('/'));
       })
       .catch(() => {
-        router.go("/");
+        router.go('/');
       });
   }
 
   renderChatList() {
     const { chatList } = this.props;
-    if (!chatList || chatList.length === 0) {
+    if (!chatList) {
       return '<div class="wrapper"><span class="loader"></span></div>';
     }
     const searchValue = store.getState().searchValue;
@@ -132,18 +132,18 @@ class ChatPageCmp extends Block<ChatPageBlock> {
            date=${lastMessageTime}
            messageCount=${unreadMessagesCount}
            lastUserName=${lastUsername}
-           avatar="${chat.avatar || ""}"
+           avatar="${chat.avatar || ''}"
            randomColor="${arrayOfRandomColors[index]}"
            }}}
         `;
       })
-      .join("");
+      .join('');
   }
 
   renderMessageList() {
     const { messageList } = this.props;
     if (!messageList || messageList.length === 0) {
-      return "";
+      return '';
     }
     return this.props.messageList
       .map((message) => {
@@ -155,7 +155,7 @@ class ChatPageCmp extends Block<ChatPageBlock> {
         userId="${user_id}"
       }}}`;
       })
-      .join("");
+      .join('');
   }
 
   get isAdmin() {
@@ -199,16 +199,16 @@ class ChatPageCmp extends Block<ChatPageBlock> {
         </div>
         <div class="chats__current">
           <div class="chats__current-head">
-            ${currentUser ? `<img src=${"https://ya-praktikum.tech/api/v2/resources" + currentUser.avatar} alt="Автара" class="chats__current-avatar"/>` : '<div class="chats__current-avatar"></div>'}
+            ${currentUser && currentUser.avatar ? `<img src=${'https://ya-praktikum.tech/api/v2/resources' + `${currentUser.avatar}`} alt="Аватар" class="chats__current-avatar"/>` : '<div class="chats__current-avatar"></div>'}
             <span
-              class="chats__current-name">${currentUser?.display_name || ""}</span>
-              ${this.isAdmin ? "{{{ ButtonOpenChatOptions }}}" : ""}
+              class="chats__current-name">${currentUser?.display_name || ''}</span>
+            ${this.isAdmin ? '{{{ ButtonOpenChatOptions }}}' : ''}
           </div>
           <ul class="chats__dialog">
             ${this.props.currentChatId ? this.renderMessageList() : '<div class="wrapper">Выберите или создайте чат!</div>'}
           </ul>
           <form class="chats__form">
-            ${this.props.currentChatId ? "{{{ chatMessageInput }}}{{{ ButtonSendMessage }}}" : ""}
+            ${this.props.currentChatId ? '{{{ chatMessageInput }}}{{{ ButtonSendMessage }}}' : ''}
           </form>
         </div>
       </div>
@@ -222,7 +222,7 @@ export const ChatPage = () => {
     currentUser: state.currentUser,
     chatList: state.chatList || [],
     messageList: state.messageList || [],
-    searchValue: state.searchValue || "",
+    searchValue: state.searchValue || '',
   }));
 
   return withChats(ChatPageCmp);

@@ -16,7 +16,7 @@ export type ModalCreateChatProps = {
 };
 
 export type ModalCreateChatBlock = {
-  overlay: Block<{}>;
+  overlay: Block;
   button: Block<ButtonProps>;
   createChatInput: Block<InputProps>;
 } & ModalCreateChatProps;
@@ -74,7 +74,7 @@ class ModalCreateChatCmp extends Block<ModalCreateChatBlock> {
                   });
                 })
                 .catch((e) =>
-                  alert("У нас не получилось создать чат" + " " + e.reason)
+                  alert(`У нас не получилось создать чат : ${e.reason}`)
                 );
             }
           },

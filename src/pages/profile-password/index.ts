@@ -131,7 +131,7 @@ class ProfilePasswordCmp extends Block<ProfilePasswordBlock> {
               UserController.changePassword({ oldPassword, newPassword })
                 .then(() => alert("Смена пароля удалась!"))
                 .catch((e) =>
-                  alert("Смена пароля не удалась! Причина:" + e.reason)
+                  alert(`Смена пароля не удалась! Причина: ${e.reason}`)
                 );
             }
           },
@@ -155,7 +155,7 @@ class ProfilePasswordCmp extends Block<ProfilePasswordBlock> {
         {{{ BackButton  href='/messenger' }}}
         <form class="profile-password-change">
           <div class="profile-password-change__img-wrapper">
-            ${avatar ? `<img src=${"https://ya-praktikum.tech/api/v2/resources" + avatar} alt="Автара" class="profile__img"/>` : '<div class="profile__img"></div>'}
+            ${avatar ? `<img src=${"https://ya-praktikum.tech/api/v2/resources" + `${avatar}`} alt="Аватар" class="profile__img"/>` : '<div class="profile__img"></div>'}
           </div>
           <ul class="profile-password-change__fields">
             <li class="profile-password-change__field">

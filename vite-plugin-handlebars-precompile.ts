@@ -9,6 +9,7 @@ export const handlebars = (): PluginOption => {
       if (!fileRegexp.test(id)) {
         return;
       }
+      // language=javascript
       const code = `
         import Handlebars from 'handlebars/runtime'
 
