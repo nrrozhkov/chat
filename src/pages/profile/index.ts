@@ -77,7 +77,7 @@ class ProfilePageCmp extends Block<ProfileBlock> {
         <div class="profile">
           <div class="profile__img-wrapper">
             <div class="profile__img-overlay-wrapper">
-              ${avatar ? `<img src=${"https://ya-praktikum.tech/api/v2/resources" + avatar} alt="Автара" class="profile__img"/>` : '<div class="profile__img"></div>'}
+              ${avatar ? `<img src=${"https://ya-praktikum.tech/api/v2/resources" + `${avatar}`} alt="Автара" class="profile__img"/>` : '<div class="profile__img"></div>'}
               {{{ avatarButton }}}
             </div>
             <span class="profile__name">${first_name}</span>
